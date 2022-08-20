@@ -2,13 +2,12 @@
 {% load static %}
 {% block content %}
 
-
 {% if page == 'register' %}
 
 <div class="auth">
     <div class="card">
         <div class="auth__header text-center">
-            <a href="{% url 'profiles' %}">IT<i class="fa fa-search"></i>finder</a>
+            <a href="{% url 'profiles' %}">ITfinder</a>
             <h3>Зарегистрироваться</h3>
             <p>Создать аккаунт разработчика</p>
         </div>
@@ -40,8 +39,6 @@
     </div>
 </div>
 
-
-
 {% else %}
 
 <div class="auth">
@@ -49,7 +46,7 @@
     <div class="card">
 
         <div class="auth__header text-center">
-                <a href="{% url 'profiles' %}">IT<i class="fa fa-search"></i>finder</a>
+                <a href="{% url 'profiles' %}">ITfinder</a>
             <h3>Вход в аккаунт</h3>
             <p>Добро пожаловать на ITfinder</p>
         </div>
