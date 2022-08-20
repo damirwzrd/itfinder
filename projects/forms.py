@@ -2,7 +2,9 @@ from django.forms import ModelForm
 from django import forms
 from .models import Project, Review
 
+
 class ProjectForm(ModelForm):
+    """"""
     class Meta:
         model = Project
         fields = ['title', 'slug', 'image', 'tags', 'description', 'demo_link', 'source_link']
@@ -26,7 +28,9 @@ class ProjectForm(ModelForm):
         for name, field in self.fields.items():
             field.widget.attrs.update({'class': 'input'})    
 
+
 class ReviewForm(ModelForm):
+    """"""
     class Meta:
         model = Review
         fields = ['value', 'body']

@@ -6,12 +6,14 @@ from django.contrib.auth.decorators import login_required
 from django.core import paginator
 from .utils import paginateProjects, searchProjects
 
+
 def projects(request):
     projects, search_query = searchProjects(request)
     custom_range, projects = paginateProjects(request, projects, 6)
     context = {'projects': projects,
                'search_query': search_query, 'custom_range': custom_range}
     return render(request, 'projects/projects.html', context)
+
 
 def project(request, project_slug):
     project = Project.objects.get(slug=project_slug)
@@ -28,6 +30,7 @@ def project(request, project_slug):
         messages.success(request, 'Ваш отзыв был добавлен!')
         return redirect('project', project_slug=project.slug)    
     return render(request, 'projects/single-project.html', {'project': project, 'form': form})
+
 
 @login_required(login_url="login")
 def createProject(request):
@@ -82,6 +85,7 @@ def deleteProject(request, pk):
         return redirect('projects')
     context = {'object': project}
     return render(request, 'delete_template.html', context)
+
 
 def projects_by_tag(request, tag_slug):
     tag = get_object_or_404(Tag, slug=tag_slug)
